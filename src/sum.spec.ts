@@ -1,7 +1,29 @@
-import { sum } from "./server"
+import { sum } from "./sum"
 
-test("sum of 3 + 7 must be 10", () => {
-    const result = sum(3,7)
-  
-    expect(result).toBe(10)
+describe("sum", () => {
+  let sumResult: number;  
+    beforeAll(() => {
+        sumResult = 10;
+        console.log("Executado Antesc dos testes", sumResult)
+
+    })
+
+    it("should do sum of 3 + 7 must be 10", () => {
+        const result = sum(3,7)
+    
+        expect(result).toBe(10)
+    })
+    
+    test("sum of 2 + 2 must be 4", () => {
+        const result = sum(2,2)
+    
+        expect(result).toBe(4)
+    })
+    
+    afterAll(() => {
+        sumResult = 0;
+        console.log("Executado depois dos testes", sumResult)
+    })
+
 })
+
